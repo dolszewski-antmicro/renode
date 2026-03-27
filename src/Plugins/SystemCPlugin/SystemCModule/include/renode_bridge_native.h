@@ -9,6 +9,7 @@
 #include <cstdint>
 #include <systemc>
 #include <tlm>
+#include "renode_bridge_native_export.h"
 
 struct IRenodeBridge {
   virtual void reset() = 0;
@@ -21,13 +22,13 @@ using renode_bridge_factory_t = IRenodeBridge* (*)();
 void register_renode_bridge_factory(renode_bridge_factory_t);
 
 extern "C" {
-  void systemc_init();
-  void systemc_reset();
-  void systemc_start_sim(int ns);
+  RENODE_BRIDGE_API void systemc_init();
+  RENODE_BRIDGE_API void systemc_reset();
+  RENODE_BRIDGE_API void systemc_start_sim(int ns);
+  
+  RENODE_BRIDGE_API std::uint64_t tlm_read(std::size_t size, std::uint64_t offset);
+  RENODE_BRIDGE_API void tlm_write(std::size_t size, std::int64_t value, std::uint64_t offset);
 
-  std::uint64_t tlm_read(std::size_t size, std::uint64_t offset);
-  void tlm_write(std::size_t size, std::int64_t value, std::uint64_t offset);
-
-  void gpio_write(int number, bool value);
-  void renode_gpio_update(int number, int value);
+  RENODE_BRIDGE_API void gpio_write(int number, bool value);
+  RENODE_BRIDGE_API void renode_gpio_update(int number, int value);
 }
