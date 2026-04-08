@@ -1,6 +1,6 @@
 [submodule "src/Infrastructure"]
 	path = src/Infrastructure
-	url = https://github.com/renode/renode-infrastructure.git
+	url = https://github.com/dolszewski-antmicro/renode-infrastructure
 [submodule "lib/termsharp"]
 	path = lib/termsharp
 	url = https://github.com/antmicro/termsharp.git
@@ -15,7 +15,7 @@
 	url = https://github.com/antmicro/AntShell.git
 [submodule "lib/ELFSharp"]
 	path = lib/ELFSharp
-	url = https://github.com/antmicro/elfsharp.git
+	url = https://github.com/dolszewski-antmicro/elfsharp.git
 [submodule "lib/Migrant"]
 	path = lib/Migrant
 	url = https://github.com/antmicro/Migrant.git
