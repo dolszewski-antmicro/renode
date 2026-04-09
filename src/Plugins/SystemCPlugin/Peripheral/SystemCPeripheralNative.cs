@@ -134,6 +134,18 @@ namespace Antmicro.Renode.Peripherals.SystemC
             }
         }
 
+        public string SimulationFilePathWindows
+        {
+            get => simulationFilePath;
+            set
+            {
+                if(RuntimeInfo.IsWindows())
+                {
+                    SimulationFilePath = value;
+                }
+            }
+        }
+
         public string SimulationFilePath
         {
             get => simulationFilePath;
